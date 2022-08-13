@@ -14,7 +14,7 @@ function testFunction() {
 }
 
 function deckButtonCb(deckName) {
-  console.log('deck button press:' + deckName)
+  console.log('deck button press: ' + deckName)
 }
 
 function showDecks() {
@@ -68,6 +68,7 @@ function ankiGet() {
 
 function pageSetup() {
   ankiGet();
+  showDecks();
 }
 
 document.addEventListener('DOMContentLoaded', pageSetup)
