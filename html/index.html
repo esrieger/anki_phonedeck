@@ -1,11 +1,6 @@
 
 <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
 <html xmlns='http://www.w3.org/1999/xhtml'>
-  <!--
-    Modified from the Debian original for Ubuntu
-    Last updated: 2016-11-16
-    See: https://launchpad.net/bugs/1288690
-  -->
   <head>
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
     <title>Anki Phonedeck</title>
@@ -46,52 +41,26 @@
   }
 
   div.page_header {
-    height: 99px;
+    height: 100%;
     width: 100%;
 
     background-color: #F5F6F7;
   }
 
   div.page_header span {
-    margin: 15px 0px 0px 50px;
+    margin: 15px 0px 0px 0px;
+    width: 100%;
 
     font-size: 180%;
     font-weight: bold;
+
+    text-align: center;
   }
 
-  div.page_header img {
-    margin: 3px 0px 0px 40px;
+  div.page_header p {
+    margin: 0px 0px 0px 0px;
 
-    border: 0px 0px 0px;
-  }
-
-  div.table_of_contents {
-    clear: left;
-
-    min-width: 200px;
-
-    margin: 3px 3px 3px 3px;
-
-    background-color: #FFFFFF;
-
-    text-align: left;
-  }
-
-  div.table_of_contents_item {
-    clear: left;
-
-    width: 100%;
-
-    margin: 4px 0px 0px 0px;
-
-    background-color: #FFFFFF;
-
-    color: #000000;
-    text-align: left;
-  }
-
-  div.table_of_contents_item a {
-    margin: 6px 0px 0px 6px;
+    font-size: 100%;
   }
 
   div.content_section {
@@ -109,25 +78,8 @@
     font-size: 100%;
   }
 
-  div.content_section_text pre {
-    margin: 8px 0px 8px 0px;
-    padding: 8px 8px 8px 8px;
-
-    border-width: 1px;
-    border-style: dotted;
-    border-color: #000000;
-
-    background-color: #F5F6F7;
-
-    font-style: italic;
-  }
-
   div.content_section_text p {
     margin-bottom: 6px;
-  }
-
-  div.content_section_text ul, div.content_section_text li {
-    padding: 4px 8px 4px 16px;
   }
 
   div.section_header {
@@ -141,8 +93,8 @@
     text-align: center;
   }
 
-  div.section_header_red {
-    background-color: #CD214F;
+  div.section_header_light_blue {
+    background-color: #ADD8E6;
   }
 
   div.section_header_grey {
@@ -154,56 +106,22 @@
     float: left;
   }
 
-  div.table_of_contents_item a,
-  div.content_section_text a {
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  div.table_of_contents_item a:link,
-  div.table_of_contents_item a:visited,
-  div.table_of_contents_item a:active {
-    color: #000000;
-  }
-
-  div.table_of_contents_item a:hover {
-    background-color: #000000;
-
-    color: #FFFFFF;
-  }
-
-  div.content_section_text a:link,
-  div.content_section_text a:visited,
-   div.content_section_text a:active {
-    background-color: #DCDFE6;
-
-    color: #000000;
-  }
-
-  div.content_section_text a:hover {
-    background-color: #000000;
-
-    color: #DCDFE6;
-  }
-
-  div.validator {
-  }
     </style>
   </head>
   <body>
     <div class='main_page'>
       <div class='page_header floating_element'>
-        <img src='/icons/ubuntu-logo.png' alt='Ubuntu Logo' class='floating_element'/>
         <span class='floating_element'>
           Anki Phonedeck
         </span>
+        <p id='anki_title'></p>
       </div>
       <div class='content_section floating_element'>
 
         <script type='text/javascript' src='resources/js/form_handler.js'></script>
 
-        <div class='section_header section_header_blue'>
-          <div id='anki_title'></div>
+        <div class='section_header section_header_light_blue'>
+          <p>Deck List</p>
         </div>
 
         <div class='content_section_text' id='anki_decks'>
@@ -213,8 +131,6 @@
 
       </div>
 
-    </div>
-    <div class='validator'>
     </div>
   </body>
 </html>
