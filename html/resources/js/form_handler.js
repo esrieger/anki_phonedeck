@@ -13,8 +13,65 @@ function testFunction() {
   document.getElementById('test').innerHTML = test;
 }
 
+function postTemplate() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', anki_url, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({
+    'action': 'guiCurrentCard',
+    'version': 6,
+  }));
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      console.log(xhr.responseText);
+      var jsonRsp = JSON.parse(xhr.responseText)
+      if(jsonRsp.error == null) {
+      }
+    }
+  }
+}
+
+function deckCurrentCard() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', anki_url, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({
+    'action': 'guiCurrentCard',
+    'version': 6,
+  }));
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      console.log(xhr.responseText);
+      var jsonRsp = JSON.parse(xhr.responseText)
+      if(jsonRsp.error == null) {
+      }
+    }
+  }
+}
+
 function deckButtonCb(deckName) {
   console.log('deck button press: ' + deckName)
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', anki_url, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({
+    'action': 'guiDeckReview',
+    'version': 6,
+    'params': { 'name': deckName }
+  }));
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      console.log(xhr.responseText);
+      var jsonRsp = JSON.parse(xhr.responseText)
+      if(jsonRsp.error == null) {
+        deckCurrentCard();
+      }
+    }
+  }
 }
 
 function showDecks() {
@@ -22,7 +79,7 @@ function showDecks() {
   xhr.open('POST', anki_url, true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify({
-    'action': 'deckNames', 'version': 6
+    'action': 'deckNamesAndIds', 'version': 6
   }));
 
   xhr.onreadystatechange = function() {
@@ -34,14 +91,16 @@ function showDecks() {
 
         document.getElementById('anki_decks').innerHTML = '';
 
-        for (var i = 0; i < jsonRsp.result.length; i++) {
-          if (jsonRsp.result[i] != 'Default') {
+        //console.log('length ' + Object.keys(jsonRsp.result)[1])
+        var deckKeys = Object.keys(jsonRsp.result)
+        for (var i = 0; i < deckKeys.length; i++) {
+          if (deckKeys[i] != 'Default') {
             var deck_button = document.createElement('button');
             deck_button.setAttribute('id', 'deck' + i)
-            var btnStr = jsonRsp.result[i]
+            var btnStr = deckKeys[i]
+            console.log(btnStr)
             deck_button.innerHTML = btnStr
             deck_button.setAttribute('onclick', 'deckButtonCb(\'' + btnStr + '\')')
-            console.log(jsonRsp.result[i])
             document.getElementById('anki_decks').appendChild(deck_button);
             document.getElementById('anki_decks').innerHTML += '<br>';
           }

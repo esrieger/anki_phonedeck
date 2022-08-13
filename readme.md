@@ -2,12 +2,14 @@
 
 ## About
 
-Allows anki decks on a computer to be accessed via a web page provided accessing device has access to the local network.
+Allows anki decks on a computer to be accessed via a web page provided the accessing device has access to the local network (e.g. via VPN). This allows the Anki where decks are stored to be accessed without registering an account or dealing with synchronization issues.
 
 ## Prerequisites
 
 1. Initial setup and test only verified on Ubuntu
 1. Apache2
+1. Anki installation
+1. [AnkiConnect](https://github.com/FooSoft/anki-connect)
 
 ## Setup
 
