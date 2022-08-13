@@ -13,11 +13,11 @@ function testFunction() {
   document.getElementById('test').innerHTML = test;
 }
 
-function DeckButton(deckName) {
-  document.getElementById('update').innerHTML = deckName;
+function deckButtonCb(deckName) {
+  console.log('deck button press:' + deckName)
 }
 
-function ShowDecks() {
+function showDecks() {
   var xhr = new XMLHttpRequest();
   xhr.open('POST', anki_url, true);
   xhr.setRequestHeader('Content-Type', 'application/json');
@@ -32,35 +32,42 @@ function ShowDecks() {
       if(jsonRsp.error == null) {
         var rspStr = '';
 
+        document.getElementById('anki_decks').innerHTML = '';
+
         for (var i = 0; i < jsonRsp.result.length; i++) {
           if (jsonRsp.result[i] != 'Default') {
-            var inputElement = document.createElement('button');
-            inputElement.type = 'button'
-            inputElement.setAttribute('id', 'deck' + i)
-            let btnStr = jsonRsp.result[i]
-            inputElement.innerHTML = btnStr
-            inputElement.addEventListener('click', function() {
-              DeckButton(btnStr)
-            });
+            var deck_button = document.createElement('button');
+            deck_button.setAttribute('id', 'deck' + i)
+            var btnStr = jsonRsp.result[i]
+            deck_button.innerHTML = btnStr
+            deck_button.setAttribute('onclick', 'deckButtonCb(\'' + btnStr + '\')')
             console.log(jsonRsp.result[i])
-            document.body.appendChild(inputElement);
+            document.getElementById('anki_decks').appendChild(deck_button);
+            document.getElementById('anki_decks').innerHTML += '<br>';
           }
         }
-        //document.getElementById('update').innerHTML = rspStr;
       } else {
-        document.getElementById('update').innerHTML = jsonRsp.error;
+        document.getElementById('anki_decks').innerHTML = jsonRsp.error;
       }
     }
   }
 }
 
-function AnkiGet() {
+function ankiGet() {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', anki_url, true);
   xhr.send(null);
 
   xhr.onreadystatechange = function() {
-    console.log(xhr.responseText);
-    document.getElementById('update').innerHTML = xhr.responseText;
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      console.log(xhr.responseText);
+      document.getElementById('anki_title').innerHTML = 'Powered by: ' + xhr.responseText;
+    }
   }
 }
+
+function pageSetup() {
+  ankiGet();
+}
+
+document.addEventListener('DOMContentLoaded', pageSetup)
