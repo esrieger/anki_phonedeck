@@ -63,9 +63,21 @@
     font-size: 100%;
   }
 
-  div.content_section {
+  div.card_content_section {
     margin: 3px 3px 3px 3px;
 
+    width: 48%;
+    float: left;
+    background-color: #FFFFFF;
+
+    text-align: center;
+  }
+
+  div.stats_content_section {
+    margin: 3px 3px 3px 3px;
+
+    width: 50%;
+    float: right;
     background-color: #FFFFFF;
 
     text-align: left;
@@ -82,9 +94,24 @@
     margin-bottom: 6px;
   }
 
-  div.section_header {
-    padding: 3px 6px 3px 6px;
+  div.section_header_left {
+    padding: 3px 0px 3px 0px;
 
+    width: 99%;
+    float: left;
+    background-color: #8E9CB2;
+
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 112%;
+    text-align: center;
+  }
+
+  div.section_header_right {
+    padding: 3px 0px 3px 0px;
+
+    float: right;
+    width: 99%;
     background-color: #8E9CB2;
 
     color: #FFFFFF;
@@ -98,7 +125,7 @@
   }
 
   div.section_header_grey {
-    background-color: #9F9386;
+    background-color: #C0C0C0;
   }
 
   .floating_element {
@@ -116,19 +143,29 @@
         </span>
         <p id='anki_title'></p>
       </div>
-      <div class='content_section floating_element'>
 
-        <script type='text/javascript' src='resources/js/form_handler.js'></script>
+      <script type='text/javascript' src='resources/js/form_handler.js'></script>
 
-        <div class='section_header section_header_light_blue' id='anki_section_header'>
-          <p>Deck List</p>
+      <div>
+        <div class='card_content_section floating_element'>
+          <div class='section_header_left section_header_light_blue' id='anki_section_header'>
+            <p>Deck List</p>
+          </div>
+
+          <div class='content_section_text' id='anki_cards'>
+          </div>
+
+          <button id='test' onclick='testFunction()'>test1</button>
         </div>
 
-        <div class='content_section_text' id='anki_main'>
+        <div class='stats_content_section floating_element' id='test_section'>
+          <div class='section_header_right section_header_grey' id='anki_section_header'>
+            <p>Deck Stats</p>
+          </div>
+
+          <div class='content_section_text' id='anki_stats'>
+          </div>
         </div>
-
-        <button id='test' onclick='testFunction()'>test1</button>
-
       </div>
 
     </div>
