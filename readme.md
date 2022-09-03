@@ -17,3 +17,7 @@ Allows anki decks on a computer to be accessed via a web page provided the acces
 1. Change "/var/www" of apache in sites-available/\* files to this git directory path.
 1. Change "/var/www" in apache2.conf as well to this git directory path.
 1. Restart apache with `sudo systemctl restart apache2`
+
+## Disclaimer
+
+I am an embedded C/C++ engineer and JS and web development is a foreign world to me. There's probably a better way to do this but it works for what I want it to do.
