@@ -19,9 +19,9 @@ Allows anki decks on a computer to be accessed via a web page provided the acces
 1. Restart apache with `sudo systemctl restart apache2`
 1. Git LFS may be needed to download the repository.
 1. For AnkiConnect, configure the following:
-  1.1 Set the `webBindAddress` to `"0.0.0.0"`
-  1.1 Set the `webBindPort` to `8765`
-  1.1 Set the `webCorsOriginList` to `"*"`
+  1. Set the `webBindAddress` to `"0.0.0.0"`
+  1. Set the `webBindPort` to `8765`
+  1. Set the `webCorsOriginList` to `"*"`
 1. For setup of the web page, update `anki_url` in _form\_handler.js_ to the IP address of the device hosting the web page.
 
 ## Disclaimer
