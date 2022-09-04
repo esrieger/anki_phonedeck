@@ -17,7 +17,6 @@ Allows anki decks on a computer to be accessed via a web page provided the acces
 1. Change "/var/www" of apache in sites-available/\* files to this git directory path.
 1. Change "/var/www" in apache2.conf as well to this git directory path.
 1. Restart apache with `sudo systemctl restart apache2`
-1. Git LFS may be needed to download the repository.
 1. For AnkiConnect, configure the following:
     1. Set the `webBindAddress` to `"0.0.0.0"`
     1. Set the `webBindPort` to `8765`
@@ -30,4 +29,4 @@ I am an embedded C/C++ engineer and JS and web development is a foreign world to
 
 ## Demo
 
-![](https://github.com/esrieger/anki_phonedeck/blob/main/misc/anki_phonedeck.gif)
+https://user-images.githubusercontent.com/52107791/188322150-27f80499-3d8d-4a3f-b893-429290c7e0ec.mov
