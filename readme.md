@@ -27,3 +27,7 @@ Allows anki decks on a computer to be accessed via a web page provided the acces
 ## Disclaimer
 
 I am an embedded C/C++ engineer and JS and web development is a foreign world to me. There's probably a better way to do this but it works for what I want it to do.
+
+## Demo
+
+![](https://github.com/esrieger/anki_phonedeck/blob/main/misc/anki_phonedeck.gif)
